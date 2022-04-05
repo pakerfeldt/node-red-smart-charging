@@ -1,0 +1,2226 @@
+[
+    {
+        "id": "e3b87c5a5bb534e4",
+        "type": "tab",
+        "label": "Configuration",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "5885605d0a306766",
+        "type": "tab",
+        "label": "Manage spot price",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "fba62ffe0389ab82",
+        "type": "tab",
+        "label": "Car charge",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "2db625d4a3792002",
+        "type": "tab",
+        "label": "User interface",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "8c3853cf.ef798",
+        "type": "subflow",
+        "name": "Easee",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 40,
+                "y": 360,
+                "wires": [
+                    {
+                        "id": "4412aade.fd1254"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 1420,
+                "y": 20,
+                "wires": [
+                    {
+                        "id": "11771711.3546f9",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "color": "#DDAA99"
+    },
+    {
+        "id": "f592d21375b84e51",
+        "type": "ui_tab",
+        "name": "Prices",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "5a8d154772d2343a",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Smart charging",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "YYYY-MM-DD",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "0d238d797c3f2ee2",
+        "type": "ui_group",
+        "name": "Prices",
+        "tab": "f592d21375b84e51",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "7d0d1bbdf7ee0dfd",
+        "type": "ui_tab",
+        "name": "Car",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "f1907f72ae68cb66",
+        "type": "ui_group",
+        "name": "Charger",
+        "tab": "7d0d1bbdf7ee0dfd",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "fb59e190.a65dd",
+        "type": "switch",
+        "z": "8c3853cf.ef798",
+        "name": "is access token valid?",
+        "property": "expiresAt",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "$now()",
+                "vt": "jsonata"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 380,
+        "y": 360,
+        "wires": [
+            [
+                "b0e98e6b.f88c3"
+            ],
+            [
+                "d1a530bd.86c45",
+                "710effef.aba19"
+            ]
+        ]
+    },
+    {
+        "id": "d1a530bd.86c45",
+        "type": "switch",
+        "z": "8c3853cf.ef798",
+        "name": "refresh token available?",
+        "property": "refreshToken",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "nnull"
+            },
+            {
+                "t": "null"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 690,
+        "y": 620,
+        "wires": [
+            [
+                "2d5b3408.737e0c"
+            ],
+            [
+                "63999f9d.bc724"
+            ]
+        ]
+    },
+    {
+        "id": "8eb3c690.91b568",
+        "type": "http request",
+        "z": "8c3853cf.ef798",
+        "name": "with Easee",
+        "method": "POST",
+        "ret": "obj",
+        "paytoqs": false,
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 1250,
+        "y": 620,
+        "wires": [
+            [
+                "528ef732.6636f8"
+            ]
+        ]
+    },
+    {
+        "id": "63999f9d.bc724",
+        "type": "function",
+        "z": "8c3853cf.ef798",
+        "name": "request new token",
+        "func": "return {\n    url: \"https://api.easee.cloud/api/accounts/token\",\n    headers: {\n        \"Content-Type\": \"application/json\"\n        \n    },\n    payload: JSON.stringify({\n        userName: global.get(\"easeeUsername\"),\n        password: global.get(\"easeePassword\")\n    }),\n    topic: \"new_token\"\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1010,
+        "y": 680,
+        "wires": [
+            [
+                "8eb3c690.91b568"
+            ]
+        ]
+    },
+    {
+        "id": "528ef732.6636f8",
+        "type": "function",
+        "z": "8c3853cf.ef798",
+        "name": "is success?",
+        "func": "if (msg.statusCode == 200) {\n    return [msg, null]\n} else {\n    return [null, msg]\n}",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1410,
+        "y": 620,
+        "wires": [
+            [
+                "fb180d0.724e1f"
+            ],
+            [
+                "d2366797.edb8f8"
+            ]
+        ]
+    },
+    {
+        "id": "d2366797.edb8f8",
+        "type": "switch",
+        "z": "8c3853cf.ef798",
+        "name": "can we request new token?",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "refresh_token",
+                "vt": "str"
+            },
+            {
+                "t": "neq",
+                "v": "refresh_token",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1640,
+        "y": 800,
+        "wires": [
+            [
+                "63999f9d.bc724"
+            ],
+            [
+                "aea5a656.2c6908"
+            ]
+        ]
+    },
+    {
+        "id": "aea5a656.2c6908",
+        "type": "debug",
+        "z": "8c3853cf.ef798",
+        "name": "dead end x(",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 1950,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "2d5b3408.737e0c",
+        "type": "function",
+        "z": "8c3853cf.ef798",
+        "name": "request updated token",
+        "func": "return {\n    url: \"https://api.easee.cloud/api/accounts/refresh_token\",\n    headers: {\n        \"Content-Type\": \"application/json\"\n        \n    },\n    payload: JSON.stringify({\n        accessToken: flow.get(\"accessToken\"),\n        refreshToken: flow.get(\"refreshToken\")\n    }),\n    topic: \"refresh_token\"\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1020,
+        "y": 560,
+        "wires": [
+            [
+                "8eb3c690.91b568"
+            ]
+        ]
+    },
+    {
+        "id": "fb180d0.724e1f",
+        "type": "function",
+        "z": "8c3853cf.ef798",
+        "name": "store tokens",
+        "func": "flow.set(\"accessToken\", msg.payload.accessToken)\nflow.set(\"refreshToken\", msg.payload.refreshToken)\n\nvar expiresAt = new Date()\nexpiresAt.setSeconds(expiresAt.getSeconds() + msg.payload.expiresIn - 60);\n\nflow.set(\"expiresAt\", expiresAt.toISOString())\n\nreturn {\n    payload: expiresAt\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1630,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "eb65520a.46e15",
+        "type": "comment",
+        "z": "8c3853cf.ef798",
+        "name": "no",
+        "info": "",
+        "x": 510,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "1a977556.664cfb",
+        "type": "comment",
+        "z": "8c3853cf.ef798",
+        "name": "yes",
+        "info": "",
+        "x": 510,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "6049666f.ff9ac8",
+        "type": "comment",
+        "z": "8c3853cf.ef798",
+        "name": "yes",
+        "info": "",
+        "x": 1510,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "5644a354.a3b05c",
+        "type": "comment",
+        "z": "8c3853cf.ef798",
+        "name": "no",
+        "info": "",
+        "x": 1510,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "6bcefa0f.2b9a24",
+        "type": "comment",
+        "z": "8c3853cf.ef798",
+        "name": "yes",
+        "info": "",
+        "x": 1810,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "aecdf710.159f88",
+        "type": "comment",
+        "z": "8c3853cf.ef798",
+        "name": "no",
+        "info": "",
+        "x": 1810,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "4bc62d1c.e98a04",
+        "type": "delay",
+        "z": "8c3853cf.ef798",
+        "name": "delay 3s",
+        "pauseType": "delay",
+        "timeout": "3",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "outputs": 1,
+        "x": 1140,
+        "y": 380,
+        "wires": [
+            [
+                "fb59e190.a65dd"
+            ]
+        ]
+    },
+    {
+        "id": "710effef.aba19",
+        "type": "switch",
+        "z": "8c3853cf.ef798",
+        "name": "should retry?",
+        "property": "retry",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "true",
+                "vt": "jsonata"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 650,
+        "y": 440,
+        "wires": [
+            [
+                "239c78fe.9e5fd8"
+            ],
+            [
+                "53775ef3.4368"
+            ]
+        ]
+    },
+    {
+        "id": "239c78fe.9e5fd8",
+        "type": "function",
+        "z": "8c3853cf.ef798",
+        "name": "retry one more time",
+        "func": "delete msg.retry\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 380,
+        "wires": [
+            [
+                "4bc62d1c.e98a04"
+            ]
+        ]
+    },
+    {
+        "id": "53775ef3.4368",
+        "type": "debug",
+        "z": "8c3853cf.ef798",
+        "name": "dead end x(",
+        "active": true,
+        "tosidebar": false,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 950,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "e6f78c9.90a737",
+        "type": "comment",
+        "z": "8c3853cf.ef798",
+        "name": "yes",
+        "info": "",
+        "x": 790,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "6a9816c9.c655c8",
+        "type": "comment",
+        "z": "8c3853cf.ef798",
+        "name": "no",
+        "info": "",
+        "x": 790,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "469cb78b.27f0d8",
+        "type": "function",
+        "z": "8c3853cf.ef798",
+        "name": "clear tokens",
+        "func": "flow.set(\"accessToken\", null)\nflow.set(\"refreshToken\", null)\nflow.set(\"expiresAt\", null)\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1730,
+        "y": 120,
+        "wires": [
+            [
+                "fb59e190.a65dd"
+            ]
+        ]
+    },
+    {
+        "id": "4412aade.fd1254",
+        "type": "function",
+        "z": "8c3853cf.ef798",
+        "name": "with retry",
+        "func": "msg.retry = true\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 180,
+        "y": 360,
+        "wires": [
+            [
+                "fb59e190.a65dd"
+            ]
+        ]
+    },
+    {
+        "id": "b5169afc.116498",
+        "type": "http request",
+        "z": "8c3853cf.ef798",
+        "name": "request from Easee",
+        "method": "use",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 970,
+        "y": 100,
+        "wires": [
+            [
+                "11771711.3546f9"
+            ]
+        ]
+    },
+    {
+        "id": "11771711.3546f9",
+        "type": "function",
+        "z": "8c3853cf.ef798",
+        "name": "is success?",
+        "func": "let parsedPayload = msg.payload\ntry {\n    parsedPayload = JSON.parse(parsedPayload)\n} catch (err) {\n    // Ignore\n}\nmsg.payload = parsedPayload\nif (msg.statusCode >= 200 && msg.statusCode < 300) {\n    return [msg, null]\n} else {\n    return [null, msg]\n}",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1190,
+        "y": 100,
+        "wires": [
+            [],
+            [
+                "6b5e767c.c0d648",
+                "5b3bd373.01dfbc"
+            ]
+        ]
+    },
+    {
+        "id": "7cb55c6c.f4d4b4",
+        "type": "comment",
+        "z": "8c3853cf.ef798",
+        "name": "no",
+        "info": "",
+        "x": 1290,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "9a1466d1.f93f48",
+        "type": "comment",
+        "z": "8c3853cf.ef798",
+        "name": "yes",
+        "info": "",
+        "x": 1290,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "6b5e767c.c0d648",
+        "type": "function",
+        "z": "8c3853cf.ef798",
+        "name": "authentication failed?",
+        "func": "if (msg.statusCode == 401) {\n    return [msg, null]\n} else {\n    return [null, msg]\n}",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1440,
+        "y": 180,
+        "wires": [
+            [
+                "469cb78b.27f0d8"
+            ],
+            [
+                "6a84e408.2cef1c"
+            ]
+        ]
+    },
+    {
+        "id": "5a4e5451.0c320c",
+        "type": "comment",
+        "z": "8c3853cf.ef798",
+        "name": "yes",
+        "info": "",
+        "x": 1590,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "605b84ee.04c7fc",
+        "type": "comment",
+        "z": "8c3853cf.ef798",
+        "name": "no",
+        "info": "",
+        "x": 1590,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "6a84e408.2cef1c",
+        "type": "debug",
+        "z": "8c3853cf.ef798",
+        "name": "dead end x(",
+        "active": true,
+        "tosidebar": false,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1730,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "1dabfb07.a0c405",
+        "type": "comment",
+        "z": "8c3853cf.ef798",
+        "name": "no",
+        "info": "",
+        "x": 850,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "c148c0bf.6872",
+        "type": "comment",
+        "z": "8c3853cf.ef798",
+        "name": "yes",
+        "info": "",
+        "x": 850,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "b0e98e6b.f88c3",
+        "type": "function",
+        "z": "8c3853cf.ef798",
+        "name": "use access token",
+        "func": "msg.headers = {\n    \"Content-Type\" : \"application/json\",\n    \"Authorization\": \"Bearer \" + flow.get(\"accessToken\")\n}\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 100,
+        "wires": [
+            [
+                "b5169afc.116498"
+            ]
+        ]
+    },
+    {
+        "id": "5b3bd373.01dfbc",
+        "type": "debug",
+        "z": "8c3853cf.ef798",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1440,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "e3dad6511ccd71c4",
+        "type": "inject",
+        "z": "e3b87c5a5bb534e4",
+        "name": "Runs automatically at startup",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 180,
+        "y": 40,
+        "wires": [
+            [
+                "15adb05095b13645"
+            ]
+        ]
+    },
+    {
+        "id": "15adb05095b13645",
+        "type": "function",
+        "z": "e3b87c5a5bb534e4",
+        "name": "CHANGE ME",
+        "func": "return {\n    payload: {\n        baseChargeThreshold: 40,\n        averageChargePowerKilowatts: 11,\n        kwhPerBatteryPercentage: 0.73,\n        nordpoolArea: \"SE3\",\n        nordpoolCurrency: \"SEK\",\n        ma30dOffset: 80,\n        easeeChargerId: \"CHANGE ME\",\n        easeeUsername: \"CHANGE ME\",\n        easeePassword: \"CHANGE ME\",\n        timezone: \"Europe/Stockholm\"\n    }\n}\n\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 40,
+        "wires": [
+            [
+                "3a9972b8e111cec7"
+            ]
+        ]
+    },
+    {
+        "id": "0a211756ec6510a9",
+        "type": "function",
+        "z": "e3b87c5a5bb534e4",
+        "name": "store values",
+        "func": "/*\nglobal.set(\"base-charge-threshold\", msg.payload.baseChargeThreshold)\nglobal.set(\"average-charge-power-kilowatts\", msg.payload.averageChargePowerKilowatts)\nglobal.set(\"nordpool-area\", msg.payload.nordpoolArea)\nglobal.set(\"nordpool-currency\", msg.payload.nordpoolCurrency)\nglobal.set(\"MA30d-offset\", msg.payload.ma30dOffset)\nglobal.set(\"easee-charger-id\", msg.payload.easeeChargerId)\nglobal.set(\"easee-username\", msg.payload.easeeUsername)\nglobal.set(\"easee-password\", msg.payload.easeePassword)\n*/\nglobal.set(msg.key, msg.payload)",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 770,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3a9972b8e111cec7",
+        "type": "split",
+        "z": "e3b87c5a5bb534e4",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "key",
+        "x": 590,
+        "y": 40,
+        "wires": [
+            [
+                "0a211756ec6510a9"
+            ]
+        ]
+    },
+    {
+        "id": "9ff1790a49b2791b",
+        "type": "nordpool-api-plus",
+        "z": "5885605d0a306766",
+        "name": "",
+        "area": "SE3",
+        "currency": "SEK",
+        "x": 1020,
+        "y": 40,
+        "wires": [
+            [
+                "d968b98692dd72c2"
+            ]
+        ]
+    },
+    {
+        "id": "b23ee77574544ff4",
+        "type": "inject",
+        "z": "5885605d0a306766",
+        "name": "Reload last 30 days",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "clear",
+        "payloadType": "str",
+        "x": 110,
+        "y": 40,
+        "wires": [
+            [
+                "754f096952974088"
+            ]
+        ]
+    },
+    {
+        "id": "754f096952974088",
+        "type": "function",
+        "z": "5885605d0a306766",
+        "name": "last 30 days",
+        "func": "let tomorrow = new Date()\ntomorrow.setHours(tomorrow.getHours() + 24)\nlet past = new Date()\npast.setHours(tomorrow.getHours() - 744)\n\nlet datesToFetch = []\n\nwhile(past.getTime() <= tomorrow.getTime()) {\n    datesToFetch.push({ \n        date: new Date(past.getTime())\n    })\n    past.setHours(past.getHours() + 24)\n}\n\nreturn {\n    payload: datesToFetch\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 40,
+        "wires": [
+            [
+                "08eeda32a7be4fef"
+            ]
+        ]
+    },
+    {
+        "id": "08eeda32a7be4fef",
+        "type": "split",
+        "z": "5885605d0a306766",
+        "name": "split per day",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 450,
+        "y": 40,
+        "wires": [
+            [
+                "eb0c19ea8b79d9eb"
+            ]
+        ]
+    },
+    {
+        "id": "eb7b0d2a7e1c06e1",
+        "type": "delay",
+        "z": "5885605d0a306766",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "2",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 850,
+        "y": 40,
+        "wires": [
+            [
+                "9ff1790a49b2791b"
+            ]
+        ]
+    },
+    {
+        "id": "d968b98692dd72c2",
+        "type": "split",
+        "z": "5885605d0a306766",
+        "name": "split per hour",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 1190,
+        "y": 40,
+        "wires": [
+            [
+                "02950e55f056cc5a"
+            ]
+        ]
+    },
+    {
+        "id": "eb0c19ea8b79d9eb",
+        "type": "function",
+        "z": "5885605d0a306766",
+        "name": "create nordpool request",
+        "func": "return {\n    date: msg.payload.date,\n    area: global.get(\"nordpoolArea\"),\n    currency: global.get(\"nordpoolCurrency\")\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 40,
+        "wires": [
+            [
+                "eb7b0d2a7e1c06e1"
+            ]
+        ]
+    },
+    {
+        "id": "02950e55f056cc5a",
+        "type": "function",
+        "z": "5885605d0a306766",
+        "name": "store in memory",
+        "func": "let prices = global.get(\"prices\")||[]\n\nif (prices.length == 0 || prices.slice(-1)[0].hour < msg.payload.timestamp) {\n    prices.push({\n        hour: msg.payload.timestamp, \n        area: msg.payload.area, \n        currency: msg.payload.currency,\n        price: msg.payload.price / 10 \n        \n    })\n    global.set(\"prices\", prices.slice(-720))\n}\n\nreturn {\n    payload: \"wait\"\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 100,
+        "wires": [
+            [
+                "5c387bec2f7da7d3"
+            ]
+        ]
+    },
+    {
+        "id": "0c3532abc1c95e10",
+        "type": "smooth",
+        "z": "5885605d0a306766",
+        "name": "moving average",
+        "property": "payload",
+        "action": "mean",
+        "count": "720",
+        "round": "",
+        "mult": "single",
+        "reduce": false,
+        "x": 1140,
+        "y": 220,
+        "wires": [
+            [
+                "85c2a00c83facae7"
+            ]
+        ]
+    },
+    {
+        "id": "5c387bec2f7da7d3",
+        "type": "trigger",
+        "z": "5885605d0a306766",
+        "name": "wait until done",
+        "op1": "",
+        "op2": "true",
+        "op1type": "pay",
+        "op2type": "bool",
+        "duration": "10",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 420,
+        "y": 100,
+        "wires": [
+            [
+                "6a1c432bbd032e72"
+            ]
+        ]
+    },
+    {
+        "id": "6a1c432bbd032e72",
+        "type": "function",
+        "z": "5885605d0a306766",
+        "name": "send all prices for MA calculation",
+        "func": "if (msg.payload == \"wait\") {\n    return [null, {reset: true}]\n} else {\n    let prices = global.get(\"prices\").slice(-720)\n    return [{\n        payload: prices.map(item => item.price)\n    }, null]\n}",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 100,
+        "wires": [
+            [
+                "794353a3bdcf6fc5"
+            ],
+            [
+                "0c3532abc1c95e10"
+            ]
+        ]
+    },
+    {
+        "id": "794353a3bdcf6fc5",
+        "type": "split",
+        "z": "5885605d0a306766",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 910,
+        "y": 100,
+        "wires": [
+            [
+                "0c3532abc1c95e10"
+            ]
+        ]
+    },
+    {
+        "id": "85c2a00c83facae7",
+        "type": "link out",
+        "z": "5885605d0a306766",
+        "name": "prepopulation of MA",
+        "mode": "link",
+        "links": [
+            "027e9431c76e5f73"
+        ],
+        "x": 1265,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "027e9431c76e5f73",
+        "type": "link in",
+        "z": "5885605d0a306766",
+        "name": "Incoming price info",
+        "links": [
+            "85c2a00c83facae7"
+        ],
+        "x": 65,
+        "y": 320,
+        "wires": [
+            [
+                "87b9a1d960ab7d3b"
+            ]
+        ]
+    },
+    {
+        "id": "87b9a1d960ab7d3b",
+        "type": "function",
+        "z": "5885605d0a306766",
+        "name": "store 30d MA in memory",
+        "func": "global.set(\"MA30d\", msg.payload)",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 230,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "53673472388d4203",
+        "type": "inject",
+        "z": "5885605d0a306766",
+        "name": "At 15.00",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "00 15 * * *",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 100,
+        "y": 220,
+        "wires": [
+            [
+                "effb5cdc8658be83"
+            ]
+        ]
+    },
+    {
+        "id": "effb5cdc8658be83",
+        "type": "function",
+        "z": "5885605d0a306766",
+        "name": "request tomorrows prices",
+        "func": "\n\nlet tomorrow = new Date()\ntomorrow.setDate(tomorrow.getDate() + 1)\ntomorrow.setHours(5)\ntomorrow.setMinutes(0)\ntomorrow.setSeconds(0)\ntomorrow.setMilliseconds(0)\nreturn {\n    date: tomorrow,\n    area: global.get(\"nordpoolArea\"),\n    currency: global.get(\"nordpoolCurrency\")\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 220,
+        "wires": [
+            [
+                "68da555c158f2a0e"
+            ]
+        ]
+    },
+    {
+        "id": "68da555c158f2a0e",
+        "type": "nordpool-api-plus",
+        "z": "5885605d0a306766",
+        "name": "spot prices",
+        "area": "SE3",
+        "currency": "SEK",
+        "x": 530,
+        "y": 220,
+        "wires": [
+            [
+                "48f7a0e1399135ce"
+            ]
+        ]
+    },
+    {
+        "id": "48f7a0e1399135ce",
+        "type": "split",
+        "z": "5885605d0a306766",
+        "name": "split per hour",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 710,
+        "y": 220,
+        "wires": [
+            [
+                "78c7eb3174321529"
+            ]
+        ]
+    },
+    {
+        "id": "78c7eb3174321529",
+        "type": "function",
+        "z": "5885605d0a306766",
+        "name": "store recent prices",
+        "func": "let prices = global.get(\"prices\")\n\nlet pricepoint = {\n    hour: msg.payload.timestamp,\n    area: msg.payload.area,\n    currency: msg.payload.currency,\n    price: msg.payload.price / 10\n}\n\nif (prices.length > 0 && prices.slice(-1)[0].hour < pricepoint.hour) {\n    prices.push(pricepoint)\n    global.set(\"prices\", prices.slice(-720))\n    return { payload: pricepoint.price }    \n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 910,
+        "y": 220,
+        "wires": [
+            [
+                "0c3532abc1c95e10"
+            ]
+        ]
+    },
+    {
+        "id": "a07b81ed.a6159",
+        "type": "function",
+        "z": "fba62ffe0389ab82",
+        "name": "update smart schedule",
+        "func": "function timePlusOneHour(time) {\n    let timePlusOneHour = new Date(time.getTime())\n    timePlusOneHour.setHours(time.getHours() + 1)\n    return timePlusOneHour\n}\n\nlet minTime = new Date()\nminTime.setHours(minTime.getHours() - 1)\n\nlet possibleSmartChargeHours = msg.payload\n\n//let outlook = flow.get(\"outlook\")\n//                .filter(item => item.time.getTime() >= minTime.getTime())\n\nlet smartSchedule = {\n    type: \"smartSchedule\",\n    active: false\n}\n\nif (possibleSmartChargeHours.length > 0) {\n    stop = new Date(possibleSmartChargeHours[0].time.getTime())\n    stop.setHours(possibleSmartChargeHours[0].time.getHours() + 1)\n    initialValue = { \n        start: possibleSmartChargeHours[0].time,\n        stop: stop\n    }\n\n    \n    let nextRange = possibleSmartChargeHours.slice(1).reduce(\n        (acc, currentValue) => {\n            if (acc.stop.getTime() == currentValue.time.getTime()) {\n                return { start: acc.start, stop: timePlusOneHour(currentValue.time) }\n            } else {\n                return acc\n            }\n        }, initialValue\n    )\n    \n    smartSchedule = {\n        type: \"smartSchedule\",\n        active: true,\n        chargeStartTime: nextRange.start,\n        chargeStopTime: nextRange.stop\n    }\n    \n    node.status({fill:\"green\",shape:\"dot\",text:nextRange.start.toISOString()});\n} else {\n    node.status({fill:\"red\",shape:\"ring\",text:\"Nothing planned\"});\n}\n\nflow.set(\"smartSchedule\", smartSchedule)\nreturn {\n    topic: \"smartSchedule\",\n    payload: smartSchedule\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 140,
+        "wires": [
+            [
+                "36b789df.3222c6"
+            ]
+        ]
+    },
+    {
+        "id": "36b789df.3222c6",
+        "type": "link out",
+        "z": "fba62ffe0389ab82",
+        "name": "Smart schedule updated",
+        "mode": "link",
+        "links": [
+            "213f578d.e50858",
+            "b6be2c3f1e9fc87b"
+        ],
+        "x": 1115,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "2d9e1e0ab973bfa1",
+        "type": "function",
+        "z": "fba62ffe0389ab82",
+        "name": "fetch possible smart charge hours",
+        "func": "let prices = global.get(\"prices\") || []\nlet ma30d = global.get(\"MA30d\") || 0\nlet ma30dOffset = global.get(\"MA30dOffset\") || 80\n\nlet latestHour = new Date()\nlatestHour.setHours(latestHour.getHours() - 1)\n\nlet filteredPrices = prices\n    .filter(pricepoint => (new Date(pricepoint.hour)).getTime() >= latestHour.getTime())\n    .filter(pricepoint => pricepoint.price < (ma30d - ma30dOffset))\n    .map(pricepoint => {return {time: new Date(pricepoint.hour), price: pricepoint.price}})\nreturn {\n    payload: filteredPrices\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 140,
+        "wires": [
+            [
+                "a07b81ed.a6159"
+            ]
+        ]
+    },
+    {
+        "id": "cbe389d329b2ef77",
+        "type": "inject",
+        "z": "fba62ffe0389ab82",
+        "name": "Every hour",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "0 0-23 * * *",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 140,
+        "wires": [
+            [
+                "2d9e1e0ab973bfa1"
+            ]
+        ]
+    },
+    {
+        "id": "56b2129c.b1ff6c",
+        "type": "subflow:8c3853cf.ef798",
+        "z": "fba62ffe0389ab82",
+        "name": "",
+        "env": [],
+        "x": 910,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c931239d.fc414",
+        "type": "link out",
+        "z": "fba62ffe0389ab82",
+        "name": "Smart laddning",
+        "mode": "link",
+        "links": [
+            "fdc46b3678cfc817"
+        ],
+        "x": 615,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "213f578d.e50858",
+        "type": "link in",
+        "z": "fba62ffe0389ab82",
+        "name": "Determine charger state",
+        "links": [
+            "36b789df.3222c6",
+            "e754cc84.db097",
+            "c3428dda9658eee2"
+        ],
+        "x": 275,
+        "y": 580,
+        "wires": [
+            [
+                "74005ac1.909954"
+            ]
+        ]
+    },
+    {
+        "id": "74005ac1.909954",
+        "type": "function",
+        "z": "fba62ffe0389ab82",
+        "name": "determine charger state",
+        "func": "let forceCharge = flow.get(\"forceCharge\")\nlet chargerId = global.get(\"easeeChargerIid\")\n\nif (forceCharge) {\n    node.status({fill: \"green\", shape: \"dot\", text:\"Forced charging\"});\n    return {\n        type: \"forced\",\n        url: \"https://api.easee.cloud/api/chargers/\" + chargerId + \"/commands/override_schedule\",\n        method: \"POST\"\n    }\n} else {\n    let activeSchedule = getActiveSchedule()\n    let type = \"\"\n    if (!activeSchedule.active) {\n        type = \"schema-nothing-planned\"\n        node.status({fill:\"red\",shape:\"dot\", text: \"Schedule: Nothing planned\"}); \n    } else {\n        let typeHumanReadable = \"\"\n        let scheduledForNow = activeSchedule.chargeStartTime.getTime() <= (new Date()).getTime()\n        switch (activeSchedule.type) {\n            case \"baseSchedule\":\n                type = \"schema-planned-base\"\n                typeHumanReadable = \"Base charging\"\n                break\n            case \"smartSchedule\":\n                type = \"schema-planned-smart\"\n                typeHumanReadable = \"Smart charging\"\n                break\n        }\n        let shape = scheduledForNow ? \"dot\" : \"ring\"\n        let text = scheduledForNow ? typeHumanReadable + \" active\" : typeHumanReadable + \" planned \" +  activeSchedule.chargeStartTime.toISOString()\n        node.status({fill: \"green\", shape: shape, text: text});\n    }\n    \n    return {\n        type: type,\n        url: \"https://api.easee.cloud/api/chargers/\" + chargerId + \"/basic_charge_plan\",\n        method: \"POST\",\n        payload: {\n            id: chargerId,\n            chargeStartTime: activeSchedule.chargeStartTime,\n            chargeStopTime: activeSchedule.chargeStopTime,\n            repeat: false,\n            isEnabled: true\n        }\n    }\n}\n\n\nfunction getActiveSchedule() {\n    let baseSchedule = flow.get(\"baseSchedule\") || {active: false}\n    let smartSchedule = flow.get(\"smartSchedule\") || {active:false}\n    if (baseSchedule.active && smartSchedule.active) {\n        if (baseSchedule.chargeStartTime.getTime() < smartSchedule.chargeStartTime.getTime()) {\n            return baseSchedule\n        } else {\n            return smartSchedule\n        }\n    } else if(baseSchedule.active) {\n        return baseSchedule\n    } else if(smartSchedule.active) {\n        return smartSchedule\n    } else {\n        return {\n            active: false,\n            chargeStartTime: \"2030-01-01T00:00:00.000Z\",\n            chargeStopTime: \"2030-01-01T01:00:00.000Z\"\n        }\n    }\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 580,
+        "wires": [
+            [
+                "67227736.7e18c8",
+                "c931239d.fc414"
+            ]
+        ]
+    },
+    {
+        "id": "1155f3ef.b9e67c",
+        "type": "comment",
+        "z": "fba62ffe0389ab82",
+        "name": "Determine charge state",
+        "info": "",
+        "x": 140,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "67227736.7e18c8",
+        "type": "function",
+        "z": "fba62ffe0389ab82",
+        "name": "send at change",
+        "func": "let currentCommand = flow.get(\"currentCommand\")||{}\n\n\n// To avoid ever changing msgid\nlet compareObject = {\n    type: msg.type,\n    url: msg.url,\n    method: msg.url,\n    payload: msg.payload\n}\n\nif (JSON.stringify(currentCommand) != JSON.stringify(compareObject)) {\n    flow.set(\"currentCommand\", compareObject)\n    return msg\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 580,
+        "wires": [
+            [
+                "61fe869c5203f506",
+                "56b2129c.b1ff6c"
+            ]
+        ]
+    },
+    {
+        "id": "61fe869c5203f506",
+        "type": "debug",
+        "z": "fba62ffe0389ab82",
+        "name": "debug output",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 930,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "bf70c18e8972363f",
+        "type": "comment",
+        "z": "fba62ffe0389ab82",
+        "name": "Smart charge",
+        "info": "",
+        "x": 110,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "30d6aa56.0b3c26",
+        "type": "link in",
+        "z": "fba62ffe0389ab82",
+        "name": "Charger state",
+        "links": [
+            "729d6d86c15c101b",
+            "fb5ef2b7c9dc6d19"
+        ],
+        "x": 125,
+        "y": 360,
+        "wires": [
+            [
+                "a02d19aa.2cc8f8",
+                "aa684ef.fc88eb"
+            ]
+        ]
+    },
+    {
+        "id": "a02d19aa.2cc8f8",
+        "type": "function",
+        "z": "fba62ffe0389ab82",
+        "name": "store in memory",
+        "func": "if (msg.topic === \"carConnected\" && msg.connected == false) {\n    return {\n        topic: \"forceCharge\",\n        payload: false\n    }\n}\n\nif (msg.topic === \"forceCharge\") {\n    let carConnected = flow.get(\"carConnected\")||false\n    if (!carConnected) {\n        return {\n            topic: \"forceCharge\",\n            payload: false\n        }\n    } else {\n        flow.set(\"forceCharge\", msg.payload)\n        return {\n            topic: \"forceCharge\",\n            payload: msg.payload\n        }\n    }\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 420,
+        "wires": [
+            [
+                "e754cc84.db097",
+                "f841fad1.a73098"
+            ]
+        ]
+    },
+    {
+        "id": "4861fcbb.83e854",
+        "type": "comment",
+        "z": "fba62ffe0389ab82",
+        "name": "Forced charging",
+        "info": "",
+        "x": 110,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "aa684ef.fc88eb",
+        "type": "function",
+        "z": "fba62ffe0389ab82",
+        "name": "check if car was connected",
+        "func": "if (msg.topic === \"car-connection\") {\n    flow.set(\"carConnected\", msg.payload.connected)\n    if (msg.payload.connected === true) {\n        return msg\n    }\n}\n\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 300,
+        "wires": [
+            [
+                "39047266.4d49fe"
+            ]
+        ]
+    },
+    {
+        "id": "e08a83a5.0199a",
+        "type": "comment",
+        "z": "fba62ffe0389ab82",
+        "name": "Base charge",
+        "info": "",
+        "x": 100,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "3fed888e.270ce8",
+        "type": "function",
+        "z": "fba62ffe0389ab82",
+        "name": "ready battery level",
+        "func": "let batteryLevel = null\n\nif (msg.payload !== undefined && msg.payload.evStatus !== undefined) {\n    batteryLevel = msg.payload.evStatus.batteryStatus\n} else if ((typeof msg.payload === 'string' || msg.payload instanceof String) && msg.payload.includes(\"[408]\")) {\n    // Request to Bluelink timed out. Handle gracefully.\n} else {\n    // Other type of error, could not parse input\n}\n\nif (batteryLevel == null) {\n    node.status({})\n} else {\n    node.status({text: batteryLevel + \"%\"})\n}\n\nreturn {\n    topic: \"batteryLevel\",\n    payload: \"\",\n    batteryLevel: batteryLevel\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 990,
+        "y": 300,
+        "wires": [
+            [
+                "b3c0d0e16e3e9e83"
+            ]
+        ]
+    },
+    {
+        "id": "462d6bf1.2b92b4",
+        "type": "function",
+        "z": "fba62ffe0389ab82",
+        "name": "update base schedule",
+        "func": "const baseChargeThreshold = global.get(\"baseChargeThreshold\")\nconst averageChargePowerKilowatts = global.get(\"averageChargePowerKilowatts\")\nconst kwhPerBatteryPercentage = global.get(\"kwhPerBatteryPercentage\")\n\nlet baseSchedule = {\n    type: \"baseSchedule\",\n    active: false\n}\n\nlet ignoreRestOfFlow = false\nif(msg.topic === \"checkInvalidation\") {\n    let storedSchedule = flow.get(\"baseSchedule\") || {type: \"baseSchedule\", active: false}\n    if (storedSchedule.active && storedSchedule.chargeStopTime.getTime() < (new Date()).getTime()) {\n        flow.set(\"baseSchedule\", baseSchedule)\n    } else {\n        baseSchedule = storedSchedule\n    }\n    ignoreRestOfFlow = true\n} else if(msg.topic === \"batteryLevel\") {\n    if (msg.batteryLevel < baseChargeThreshold) {\n        let kwhDemand = (baseChargeThreshold - msg.batteryLevel) * kwhPerBatteryPercentage\n        let chargeTimeMinutes = (kwhDemand / averageChargePowerKilowatts) * 60\n        let startTime = new Date(msg.payload.sort((a, b) => a.price - b.price)[0].time)\n        startTime = new Date(Math.max(startTime.getTime(), (new Date()).getTime())) // Ensures start time is never earlier than now\n        let stopTime = new Date(startTime.getTime())\n        stopTime.setMinutes(stopTime.getMinutes() + chargeTimeMinutes)\n        baseSchedule = {\n            type: \"baseSchedule\",\n            active: true,\n            chargeStartTime: startTime,\n            chargeStopTime: stopTime  \n        }\n    }\n}\n\nif (baseSchedule.active) {\n     node.status({fill:\"green\",shape:\"dot\",text: baseSchedule.chargeStartTime.toISOString()});\n} else {\n    node.status({fill:\"red\",shape:\"ring\",text:\"Nothing planned\"});\n}\n\nflow.set(\"baseSchedule\", baseSchedule)\n\nif (!ignoreRestOfFlow) {\n    return {\n        topic: \"baseSchedule\",\n        payload: baseSchedule\n    }\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1420,
+        "y": 300,
+        "wires": [
+            [
+                "c3428dda9658eee2"
+            ]
+        ]
+    },
+    {
+        "id": "39047266.4d49fe",
+        "type": "delay",
+        "z": "fba62ffe0389ab82",
+        "name": "at most once / 30 min",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "30",
+        "rateUnits": "minute",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 590,
+        "y": 300,
+        "wires": [
+            [
+                "4d8065fc.3c9f4c"
+            ]
+        ]
+    },
+    {
+        "id": "e754cc84.db097",
+        "type": "link out",
+        "z": "fba62ffe0389ab82",
+        "name": "Determine charger state",
+        "mode": "link",
+        "links": [
+            "213f578d.e50858"
+        ],
+        "x": 445,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "f841fad1.a73098",
+        "type": "link out",
+        "z": "fba62ffe0389ab82",
+        "name": "Force charging",
+        "mode": "link",
+        "links": [
+            "bb90023249f8b335"
+        ],
+        "x": 445,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "35abf626.828bda",
+        "type": "inject",
+        "z": "fba62ffe0389ab82",
+        "name": "Update state every 15 minutes",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "*/15 0-23 * * *",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "checkInvalidation",
+        "payload": "",
+        "payloadType": "date",
+        "x": 1130,
+        "y": 260,
+        "wires": [
+            [
+                "462d6bf1.2b92b4"
+            ]
+        ]
+    },
+    {
+        "id": "4d8065fc.3c9f4c",
+        "type": "car-status",
+        "z": "fba62ffe0389ab82",
+        "name": "get car status",
+        "dorefresh": true,
+        "parsed": false,
+        "bluelinky": "",
+        "x": 800,
+        "y": 300,
+        "wires": [
+            [
+                "3fed888e.270ce8"
+            ]
+        ]
+    },
+    {
+        "id": "491e5adb4c0f7a75",
+        "type": "inject",
+        "z": "fba62ffe0389ab82",
+        "name": "Every 30th second",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "30",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 720,
+        "wires": [
+            [
+                "e2345598f6aa42d2"
+            ]
+        ]
+    },
+    {
+        "id": "e2345598f6aa42d2",
+        "type": "function",
+        "z": "fba62ffe0389ab82",
+        "name": "read state from",
+        "func": "let chargerId = global.get(\"easeeChargerId\")\nreturn {\n    url: \"https://api.easee.cloud/api/chargers/\" + chargerId + \"/state\",\n    method: \"GET\"\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 720,
+        "wires": [
+            [
+                "5c9b06bc9b640967"
+            ]
+        ]
+    },
+    {
+        "id": "5c9b06bc9b640967",
+        "type": "subflow:8c3853cf.ef798",
+        "z": "fba62ffe0389ab82",
+        "name": "",
+        "env": [],
+        "x": 530,
+        "y": 720,
+        "wires": [
+            [
+                "bab94fb819984883"
+            ]
+        ]
+    },
+    {
+        "id": "bab94fb819984883",
+        "type": "function",
+        "z": "fba62ffe0389ab82",
+        "name": "determine connection state",
+        "func": "let payload = { connected: false, type: \"UNKNOWN\", humanReadable: \"Unknown\"}\n\nswitch (msg.payload.chargerOpMode) {\n    case 0:\n        payload.type = \"OFFLINE\"\n        payload.humanReadable = \"Offline\"\n        payload.connected = false\n        break;\n    case 1:\n        payload.type = \"DISCONNECTED\"\n        payload.humanReadable = \"Not connected\"\n        payload.connected = false\n    break;\n    case 2:\n        payload.type = \"WAITING_START\"\n        payload.humanReadable = \"Awaiting start\"\n        payload.icon = \"fa fa-plug\"\n        payload.connected = true\n        break;\n    case 3:\n        payload.type = \"CHARGING\"\n        payload.humanReadable = \"Charging (\" + msg.payload.totalPower.toFixed(1) + \" kW)\"\n        payload.icon = \"fa fa-battery-half\"\n        payload.connected = true\n        break;\n    case 4:\n        payload.type = \"COMPLETED\"\n        payload.humanReadable = \"Charge completed\"\n        payload.icon = \"fa fa-battery\"\n        payload.connected = true\n        break;\n    case 5:\n        payload.type = \"ERROR\"\n        payload.humanReadable = \"Error\"\n        payload.connected = false\n        break;\n    case 6:\n        payload.type = \"READY_TO_CHARGE\"\n        payload.humanReadable = \"Ready to charge\"\n        payload.connected = true\n        break\n}\n\npayload.icon = \"<i class=\\\"\" + payload.icon + \"\\\" aria-hidden=\\\"true\\\"></i>\"\n\nreturn {\n    topic: \"car-connection\",\n    payload: payload\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 720,
+        "wires": [
+            [
+                "a1399234ea88d795",
+                "46d7fda993d6f037"
+            ]
+        ]
+    },
+    {
+        "id": "a1399234ea88d795",
+        "type": "rbe",
+        "z": "fba62ffe0389ab82",
+        "name": "pass on change",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": false,
+        "property": "payload",
+        "topi": "topic",
+        "x": 980,
+        "y": 720,
+        "wires": [
+            [
+                "729d6d86c15c101b"
+            ]
+        ]
+    },
+    {
+        "id": "729d6d86c15c101b",
+        "type": "link out",
+        "z": "fba62ffe0389ab82",
+        "name": "Charger state",
+        "mode": "link",
+        "links": [
+            "30d6aa56.0b3c26"
+        ],
+        "x": 1125,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "b3c0d0e16e3e9e83",
+        "type": "function",
+        "z": "fba62ffe0389ab82",
+        "name": "fetch spot prices",
+        "func": "let prices = global.get(\"prices\") || []\n\nlet latestHour = new Date()\nlatestHour.setHours(latestHour.getHours() - 1)\n\nlet filteredPrices = prices\n    .filter(pricepoint => (new Date(pricepoint.hour)).getTime() >= latestHour.getTime())\n    .map(pricepoint => {return {time: new Date(pricepoint.hour), price: pricepoint.price}})\nmsg.payload = filteredPrices\nreturn msg\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1200,
+        "y": 300,
+        "wires": [
+            [
+                "462d6bf1.2b92b4"
+            ]
+        ]
+    },
+    {
+        "id": "c3428dda9658eee2",
+        "type": "link out",
+        "z": "fba62ffe0389ab82",
+        "name": "Smart schedule updated",
+        "mode": "link",
+        "links": [
+            "213f578d.e50858",
+            "b6be2c3f1e9fc87b"
+        ],
+        "x": 1585,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "46d7fda993d6f037",
+        "type": "link out",
+        "z": "fba62ffe0389ab82",
+        "name": "to UI",
+        "mode": "link",
+        "links": [
+            "9ffb8aab787fb03b"
+        ],
+        "x": 915,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "ed02dbe7550142c3",
+        "type": "ui_text",
+        "z": "2db625d4a3792002",
+        "group": "f1907f72ae68cb66",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "x": 930,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "fdc46b3678cfc817",
+        "type": "link in",
+        "z": "2db625d4a3792002",
+        "name": "Charger status",
+        "links": [
+            "c931239d.fc414"
+        ],
+        "x": 155,
+        "y": 140,
+        "wires": [
+            [
+                "45b414bf.8e9c1c"
+            ]
+        ]
+    },
+    {
+        "id": "45b414bf.8e9c1c",
+        "type": "function",
+        "z": "2db625d4a3792002",
+        "name": "add dummy time if needed",
+        "func": "let timezone = global.get(\"timezone\")\n\n// To avoid error message in next node\nif (msg.payload === undefined || msg.payload.chargeStartTime === undefined) {\n    if (msg.payload === undefined) {\n        msg.payload = {\n            chargeStartTime: new Date()\n        }\n    } else {\n        msg.payload.chargeStartTime = new Date()\n    }\n}\nmsg.chargeStartTime = msg.payload.chargeStartTime\nmsg.outTz = timezone\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 140,
+        "wires": [
+            [
+                "b8718be1.c2d8a8"
+            ]
+        ]
+    },
+    {
+        "id": "b8718be1.c2d8a8",
+        "type": "moment",
+        "z": "2db625d4a3792002",
+        "name": "",
+        "topic": "",
+        "input": "payload.chargeStartTime",
+        "inputType": "msg",
+        "inTz": "Europe/Stockholm",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "YYYY-MM-DD HH:mm",
+        "locale": "sv-SE",
+        "output": "formatted",
+        "outputType": "msg",
+        "outTz": "Europe/Stockholm",
+        "x": 580,
+        "y": 140,
+        "wires": [
+            [
+                "23a25d24.f7fbe2"
+            ]
+        ]
+    },
+    {
+        "id": "23a25d24.f7fbe2",
+        "type": "function",
+        "z": "2db625d4a3792002",
+        "name": "to description",
+        "func": "let message = \"\"\nlet scheduleActive = false\nnode.warn(msg)\n\nif (msg.chargeStartTime !== undefined && (new Date(msg.chargeStartTime)).getTime() <= (new Date()).getTime()) {\n    scheduleActive = true\n}\n\nif (msg.type === \"forced\") {\n    message = \"Forced charging activated\"\n} else if (msg.type === \"schema-nothing-planned\") {\n    message = \"On schedule but no upcoming charge planned\"\n} else if (msg.type === \"schema-planned-base\") {\n    message = scheduleActive ? \"Base charging active\" : \"Base charging planned<br/>\" + msg.formatted\n} else if (msg.type === \"schema-planned-smart\") {\n    message = scheduleActive ? \"Smart charging active\" : \"Smart charging planned<br/>\" + msg.formatted\n}\n\nmsg.payload = message\nreturn msg\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 770,
+        "y": 140,
+        "wires": [
+            [
+                "ed02dbe7550142c3"
+            ]
+        ]
+    },
+    {
+        "id": "430ebbf8da9bee44",
+        "type": "ui_switch",
+        "z": "2db625d4a3792002",
+        "name": "",
+        "label": "Force charging",
+        "tooltip": "",
+        "group": "f1907f72ae68cb66",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "forceCharge",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 560,
+        "y": 200,
+        "wires": [
+            [
+                "fb5ef2b7c9dc6d19"
+            ]
+        ]
+    },
+    {
+        "id": "bb90023249f8b335",
+        "type": "link in",
+        "z": "2db625d4a3792002",
+        "name": "Force charging",
+        "links": [
+            "f841fad1.a73098"
+        ],
+        "x": 155,
+        "y": 200,
+        "wires": [
+            [
+                "430ebbf8da9bee44"
+            ]
+        ]
+    },
+    {
+        "id": "fb5ef2b7c9dc6d19",
+        "type": "link out",
+        "z": "2db625d4a3792002",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "30d6aa56.0b3c26"
+        ],
+        "x": 775,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "9ffb8aab787fb03b",
+        "type": "link in",
+        "z": "2db625d4a3792002",
+        "name": "From car",
+        "links": [
+            "46d7fda993d6f037"
+        ],
+        "x": 155,
+        "y": 260,
+        "wires": [
+            [
+                "b7c532dd4b16fc64"
+            ]
+        ]
+    },
+    {
+        "id": "b7c532dd4b16fc64",
+        "type": "ui_text",
+        "z": "2db625d4a3792002",
+        "group": "f1907f72ae68cb66",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "charger state",
+        "label": "",
+        "format": "{{msg.payload.icon}} {{msg.payload.humanReadable}}",
+        "layout": "row-left",
+        "className": "",
+        "x": 550,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "1ae0b6aee61b675c",
+        "type": "comment",
+        "z": "2db625d4a3792002",
+        "name": "Car tab",
+        "info": "",
+        "x": 110,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "c4bd3737bf0ac28c",
+        "type": "comment",
+        "z": "2db625d4a3792002",
+        "name": "Status tab",
+        "info": "",
+        "x": 120,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "64a7239d352179d0",
+        "type": "inject",
+        "z": "2db625d4a3792002",
+        "name": "Every minute",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 440,
+        "wires": [
+            [
+                "df9f45bc316d0519",
+                "02738359a2743cc6"
+            ]
+        ]
+    },
+    {
+        "id": "833becc6406f9de6",
+        "type": "ui_chart",
+        "z": "2db625d4a3792002",
+        "name": "",
+        "group": "0d238d797c3f2ee2",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Spotprice",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "dd HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "48",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 940,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "df9f45bc316d0519",
+        "type": "function",
+        "z": "2db625d4a3792002",
+        "name": "fetch prices for latest 48h",
+        "func": "let prices = global.get(\"prices\") || []\n\nlet last48h = prices.slice(-48).map(pricepoint => { \n    return {\n        topic: \"Spotprice\", \n        timestamp: (new Date(pricepoint.hour)).getTime(), \n        payload: Math.round(pricepoint.price)\n        \n    }\n})\n\nreturn {\n    payload: last48h\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 420,
+        "wires": [
+            [
+                "d6d8db6ca364b493"
+            ]
+        ]
+    },
+    {
+        "id": "d6d8db6ca364b493",
+        "type": "split",
+        "z": "2db625d4a3792002",
+        "name": "split per hour",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 590,
+        "y": 420,
+        "wires": [
+            [
+                "bca077015572a70b"
+            ]
+        ]
+    },
+    {
+        "id": "bca077015572a70b",
+        "type": "function",
+        "z": "2db625d4a3792002",
+        "name": "construct message",
+        "func": "return {\n    topic: msg.payload.topic,\n    payload: msg.payload.payload,\n    timestamp: msg.payload.timestamp\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 770,
+        "y": 420,
+        "wires": [
+            [
+                "833becc6406f9de6"
+            ]
+        ]
+    },
+    {
+        "id": "02738359a2743cc6",
+        "type": "function",
+        "z": "2db625d4a3792002",
+        "name": "fetch price information",
+        "func": "let MA30d = global.get(\"MA30d\")\n\nreturn {\n    topic: \"ma30d\",\n    payload: Math.round(MA30d)\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 460,
+        "wires": [
+            [
+                "bca4469546839b51"
+            ]
+        ]
+    },
+    {
+        "id": "bca4469546839b51",
+        "type": "ui_text",
+        "z": "2db625d4a3792002",
+        "group": "0d238d797c3f2ee2",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "moving average (30d)",
+        "label": "Moving average (30d): ",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "x": 980,
+        "y": 460,
+        "wires": []
+    }
+]

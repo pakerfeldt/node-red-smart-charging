@@ -1,0 +1,12 @@
+version: '3.2'
+services:
+  node-red:
+    build: ./node-red
+    environment: 
+    - TZ=Europe/Stockholm
+    ports:
+    - "80:1880"
+    volumes:
+    - ./data/node-red/:/data
+    restart: unless-stopped
+    privileged: true

@@ -3,6 +3,7 @@
 
 # Node-RED Smart Charging
 
+[Just looking for the step-b-step guide to get you started?](#step-by-step-guide)
 # What is this (the one-liner)?
 Software meant to run on Raspberry Pi to control your Easee chargebox for smart charging when electricity price is low.
 # What is this (the longer version)?
@@ -41,7 +42,7 @@ You might also want:
 # Step-by-step guide
 
 ## Prepare your Raspberry Pi
-Install Raspbery Pi OS on your microSD card. This is easily done with Raspberry Pi Imager. In "Choose Image", choose Raspberry Pi OS (32-bit), in "Choose storage" you select the microSD card which you have connected to your computer using a card reader. Hit "Write" to stat the process. Raspberry Pi website has [further instructions](https://www.raspberrypi.com/software/).
+Install Raspbery Pi OS on your microSD card. This is easily done with Raspberry Pi Imager. In `Choose Image`, choose Raspberry Pi OS (32-bit), in `Choose storage` you select the microSD card which you have connected to your computer using a card reader. Hit `Write` to start the process. Raspberry Pi website has [further instructions](https://www.raspberrypi.com/software/).
 
 ## Access the Raspberry Pi
 ### Direct access

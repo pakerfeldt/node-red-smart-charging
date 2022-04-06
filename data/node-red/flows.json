@@ -19,7 +19,7 @@
         "id": "fba62ffe0389ab82",
         "type": "tab",
         "label": "Car charge",
-        "disabled": true,
+        "disabled": false,
         "info": "",
         "env": []
     },
@@ -43,14 +43,14 @@
                 "y": 360,
                 "wires": [
                     {
-                        "id": "4412aade.fd1254"
+                        "id": "d844ba2701fdb7c8"
                     }
                 ]
             }
         ],
         "out": [
             {
-                "x": 1420,
+                "x": 1560,
                 "y": 20,
                 "wires": [
                     {
@@ -219,7 +219,7 @@
         "checkall": "false",
         "repair": false,
         "outputs": 2,
-        "x": 380,
+        "x": 520,
         "y": 360,
         "wires": [
             [
@@ -249,7 +249,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 690,
+        "x": 830,
         "y": 620,
         "wires": [
             [
@@ -273,7 +273,7 @@
         "persist": false,
         "proxy": "",
         "authType": "",
-        "x": 1250,
+        "x": 1390,
         "y": 620,
         "wires": [
             [
@@ -292,7 +292,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1010,
+        "x": 1150,
         "y": 680,
         "wires": [
             [
@@ -311,7 +311,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1410,
+        "x": 1550,
         "y": 620,
         "wires": [
             [
@@ -344,7 +344,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 1640,
+        "x": 1780,
         "y": 800,
         "wires": [
             [
@@ -366,7 +366,7 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "x": 1950,
+        "x": 2090,
         "y": 860,
         "wires": []
     },
@@ -381,7 +381,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1020,
+        "x": 1160,
         "y": 560,
         "wires": [
             [
@@ -400,7 +400,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1630,
+        "x": 1770,
         "y": 520,
         "wires": [
             []
@@ -412,7 +412,7 @@
         "z": "8c3853cf.ef798",
         "name": "no",
         "info": "",
-        "x": 510,
+        "x": 650,
         "y": 420,
         "wires": []
     },
@@ -422,7 +422,7 @@
         "z": "8c3853cf.ef798",
         "name": "yes",
         "info": "",
-        "x": 510,
+        "x": 650,
         "y": 260,
         "wires": []
     },
@@ -432,7 +432,7 @@
         "z": "8c3853cf.ef798",
         "name": "yes",
         "info": "",
-        "x": 1510,
+        "x": 1650,
         "y": 580,
         "wires": []
     },
@@ -442,7 +442,7 @@
         "z": "8c3853cf.ef798",
         "name": "no",
         "info": "",
-        "x": 1510,
+        "x": 1650,
         "y": 660,
         "wires": []
     },
@@ -452,7 +452,7 @@
         "z": "8c3853cf.ef798",
         "name": "yes",
         "info": "",
-        "x": 1810,
+        "x": 1950,
         "y": 760,
         "wires": []
     },
@@ -462,7 +462,7 @@
         "z": "8c3853cf.ef798",
         "name": "no",
         "info": "",
-        "x": 1810,
+        "x": 1950,
         "y": 840,
         "wires": []
     },
@@ -482,7 +482,7 @@
         "randomUnits": "seconds",
         "drop": false,
         "outputs": 1,
-        "x": 1140,
+        "x": 1280,
         "y": 380,
         "wires": [
             [
@@ -510,7 +510,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 650,
+        "x": 790,
         "y": 440,
         "wires": [
             [
@@ -532,7 +532,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 950,
+        "x": 1090,
         "y": 380,
         "wires": [
             [
@@ -553,7 +553,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 950,
+        "x": 1090,
         "y": 480,
         "wires": []
     },
@@ -563,7 +563,7 @@
         "z": "8c3853cf.ef798",
         "name": "yes",
         "info": "",
-        "x": 790,
+        "x": 930,
         "y": 400,
         "wires": []
     },
@@ -573,7 +573,7 @@
         "z": "8c3853cf.ef798",
         "name": "no",
         "info": "",
-        "x": 790,
+        "x": 930,
         "y": 460,
         "wires": []
     },
@@ -588,7 +588,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1730,
+        "x": 1870,
         "y": 120,
         "wires": [
             [
@@ -607,7 +607,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 180,
+        "x": 320,
         "y": 360,
         "wires": [
             [
@@ -628,7 +628,7 @@
         "persist": false,
         "proxy": "",
         "authType": "",
-        "x": 970,
+        "x": 1110,
         "y": 100,
         "wires": [
             [
@@ -647,7 +647,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1190,
+        "x": 1330,
         "y": 100,
         "wires": [
             [],
@@ -663,7 +663,7 @@
         "z": "8c3853cf.ef798",
         "name": "no",
         "info": "",
-        "x": 1290,
+        "x": 1430,
         "y": 140,
         "wires": []
     },
@@ -673,7 +673,7 @@
         "z": "8c3853cf.ef798",
         "name": "yes",
         "info": "",
-        "x": 1290,
+        "x": 1430,
         "y": 60,
         "wires": []
     },
@@ -688,7 +688,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1440,
+        "x": 1580,
         "y": 180,
         "wires": [
             [
@@ -705,7 +705,7 @@
         "z": "8c3853cf.ef798",
         "name": "yes",
         "info": "",
-        "x": 1590,
+        "x": 1730,
         "y": 120,
         "wires": []
     },
@@ -715,7 +715,7 @@
         "z": "8c3853cf.ef798",
         "name": "no",
         "info": "",
-        "x": 1590,
+        "x": 1730,
         "y": 220,
         "wires": []
     },
@@ -732,7 +732,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1730,
+        "x": 1870,
         "y": 240,
         "wires": []
     },
@@ -742,7 +742,7 @@
         "z": "8c3853cf.ef798",
         "name": "no",
         "info": "",
-        "x": 850,
+        "x": 990,
         "y": 660,
         "wires": []
     },
@@ -752,7 +752,7 @@
         "z": "8c3853cf.ef798",
         "name": "yes",
         "info": "",
-        "x": 850,
+        "x": 990,
         "y": 580,
         "wires": []
     },
@@ -767,7 +767,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 710,
+        "x": 850,
         "y": 100,
         "wires": [
             [
@@ -787,9 +787,28 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1440,
+        "x": 1580,
         "y": 100,
         "wires": []
+    },
+    {
+        "id": "d844ba2701fdb7c8",
+        "type": "function",
+        "z": "8c3853cf.ef798",
+        "name": "assert config",
+        "func": "let username = global.get(\"easeeUsername\")\nlet password = global.get(\"easeePassword\")\nif (username === undefined \n    || username === \"CHANGE ME\"\n    || password === undefined\n    || password === \"CHANGE ME\") {\n        node.warn(\"Easee not configured\")\n} else {\n    return msg\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 150,
+        "y": 360,
+        "wires": [
+            [
+                "4412aade.fd1254"
+            ]
+        ]
     },
     {
         "id": "e3dad6511ccd71c4",
@@ -825,7 +844,7 @@
         "type": "function",
         "z": "e3b87c5a5bb534e4",
         "name": "CHANGE ME",
-        "func": "return {\n    payload: {\n        baseChargeThreshold: 40,\n        averageChargePowerKilowatts: 11,\n        kwhPerBatteryPercentage: 0.73,\n        nordpoolArea: \"SE3\",\n        nordpoolCurrency: \"SEK\",\n        ma30dOffset: 80,\n        easeeChargerId: \"CHANGE ME\",\n        easeeUsername: \"CHANGE ME\",\n        easeePassword: \"CHANGE ME\",\n        timezone: \"Europe/Stockholm\"\n    }\n}\n\n\n\n",
+        "func": "return {\n    payload: {\n        baseChargeThreshold: 40,\n        averageChargePowerKilowatts: 11,\n        kwhPerBatteryPercentage: 0.73,\n        nordpoolArea: \"SE3\",\n        nordpoolCurrency: \"SEK\",\n        ma30dOffset: 80,\n        easeeChargerId: \"CHANGE ME\",\n        easeeUsername: \"CHANGE ME\",\n        easeePassword: \"CHANGE ME\",\n        timezone: \"Europe/Stockholm\",\n        useBluelink: true,\n    }\n}\n\n\n\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1560,8 +1579,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 990,
-        "y": 300,
+        "x": 770,
+        "y": 340,
         "wires": [
             [
                 "b3c0d0e16e3e9e83"
@@ -1579,8 +1598,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1420,
-        "y": 300,
+        "x": 1200,
+        "y": 340,
         "wires": [
             [
                 "c3428dda9658eee2"
@@ -1608,7 +1627,7 @@
         "y": 300,
         "wires": [
             [
-                "4d8065fc.3c9f4c"
+                "43a1614a043c4023"
             ]
         ]
     },
@@ -1659,8 +1678,8 @@
         "topic": "checkInvalidation",
         "payload": "",
         "payloadType": "date",
-        "x": 1130,
-        "y": 260,
+        "x": 950,
+        "y": 380,
         "wires": [
             [
                 "462d6bf1.2b92b4"
@@ -1675,7 +1694,7 @@
         "dorefresh": true,
         "parsed": false,
         "bluelinky": "",
-        "x": 800,
+        "x": 1020,
         "y": 300,
         "wires": [
             [
@@ -1809,8 +1828,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1200,
-        "y": 300,
+        "x": 970,
+        "y": 340,
         "wires": [
             [
                 "462d6bf1.2b92b4"
@@ -1827,8 +1846,8 @@
             "213f578d.e50858",
             "b6be2c3f1e9fc87b"
         ],
-        "x": 1585,
-        "y": 300,
+        "x": 1345,
+        "y": 340,
         "wires": []
     },
     {
@@ -1843,6 +1862,25 @@
         "x": 915,
         "y": 760,
         "wires": []
+    },
+    {
+        "id": "43a1614a043c4023",
+        "type": "function",
+        "z": "fba62ffe0389ab82",
+        "name": "check bluelink availability",
+        "func": "let useBluelink = global.get(\"useBluelink\") || false\n\nif (useBluelink) {\n    return msg\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 300,
+        "wires": [
+            [
+                "4d8065fc.3c9f4c"
+            ]
+        ]
     },
     {
         "id": "ed02dbe7550142c3",
@@ -1926,7 +1964,7 @@
         "type": "function",
         "z": "2db625d4a3792002",
         "name": "to description",
-        "func": "let message = \"\"\nlet scheduleActive = false\nnode.warn(msg)\n\nif (msg.chargeStartTime !== undefined && (new Date(msg.chargeStartTime)).getTime() <= (new Date()).getTime()) {\n    scheduleActive = true\n}\n\nif (msg.type === \"forced\") {\n    message = \"Forced charging activated\"\n} else if (msg.type === \"schema-nothing-planned\") {\n    message = \"On schedule but no upcoming charge planned\"\n} else if (msg.type === \"schema-planned-base\") {\n    message = scheduleActive ? \"Base charging active\" : \"Base charging planned<br/>\" + msg.formatted\n} else if (msg.type === \"schema-planned-smart\") {\n    message = scheduleActive ? \"Smart charging active\" : \"Smart charging planned<br/>\" + msg.formatted\n}\n\nmsg.payload = message\nreturn msg\n",
+        "func": "let message = \"\"\nlet scheduleActive = false\n\nif (msg.chargeStartTime !== undefined && (new Date(msg.chargeStartTime)).getTime() <= (new Date()).getTime()) {\n    scheduleActive = true\n}\n\nif (msg.type === \"forced\") {\n    message = \"Forced charging activated\"\n} else if (msg.type === \"schema-nothing-planned\") {\n    message = \"On schedule but no upcoming charge planned\"\n} else if (msg.type === \"schema-planned-base\") {\n    message = scheduleActive ? \"Base charging active\" : \"Base charging planned<br/>\" + msg.formatted\n} else if (msg.type === \"schema-planned-smart\") {\n    message = scheduleActive ? \"Smart charging active\" : \"Smart charging planned<br/>\" + msg.formatted\n}\n\nmsg.payload = message\nreturn msg\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",

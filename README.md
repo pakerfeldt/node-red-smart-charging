@@ -17,7 +17,7 @@ This software supports three ways of activating charging of your car.
 Activated when electricity price is relatively low. This is done by looking at the 30 day moving average of price and allow charging when current price is lower than average by X for some value of X that you can define yourself.
 
 ## Base charging
-Base charging activates charging when your car battery is below X % (a level you define yourself) and when price is at its lowest but no later than 08.00 the following morning. Obviously for this to work, the software must be able to read that level from your computer. Currently this software only supports Hyundai cars using Bluelink.
+Base charging activates charging when your car battery is below X % (a level you define yourself) and when price is at its lowest but no later than 08.00 the following morning. Obviously for this to work, the software must be able to read that level from your car. Currently this software only supports Hyundai cars using Bluelink.
 
 ## Force charging
 Through its user interface, you can also choose to activate charging manually regardless of current price. This is convenient if you require recharge as soon as possible or if you lend your charger to a friend.
